@@ -63,8 +63,23 @@ export default function Home() {
   });
   const projects = [
     {
-      title: "Project 1",
-      description: "This is the first project",
+      title: "Task 1",
+      description: "This is the first task",
+      endDate: "2024-10-08T18:35:53.000Z",
+      active: true,
+      admin: [
+        {
+          fullName: "John Doe",
+          username: "johndoe",
+          avatar:
+            "https://res.cloudinary.com/dv3qbj0bn/image/upload/v1723483837/sociial/settings/r5pvoicvcxtyhjkgqk8y.png",
+        },
+      ],
+      _id: "66caabe7c4ac6c787df4cc42",
+    },
+    {
+      title: "Task 2",
+      description: "This is the second task",
       image:
         "http://res.cloudinary.com/dv3qbj0bn/image/upload/v1724558310/sociial/ei5dc5llcnbfp66a8wjj.jpg",
       endDate: "2024-10-08T18:35:53.000Z",
@@ -80,26 +95,11 @@ export default function Home() {
       _id: "66caabe7c4ac6c787df4cc42",
     },
     {
-      title: "Project 1",
-      description: "This is the first project",
+      title: "Task 3",
+      description: "This is the third task",
+      endDate: "2024-10-08T18:35:53.000Z",
       image:
         "http://res.cloudinary.com/dv3qbj0bn/image/upload/v1724558310/sociial/ei5dc5llcnbfp66a8wjj.jpg",
-      endDate: "2024-10-08T18:35:53.000Z",
-      active: true,
-      admin: [
-        {
-          fullName: "John Doe",
-          username: "johndoe",
-          avatar:
-            "https://res.cloudinary.com/dv3qbj0bn/image/upload/v1723483837/sociial/settings/r5pvoicvcxtyhjkgqk8y.png",
-        },
-      ],
-      _id: "66caabe7c4ac6c787df4cc42",
-    },
-    {
-      title: "Project 1",
-      description: "This is the first project",
-      endDate: "2024-10-08T18:35:53.000Z",
       active: true,
       admin: [
         {
@@ -120,7 +120,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen h-max xl:col-span-8 sm:col-span-9 col-span-10">
       <div className="w-full px-10 py-8 flex flex-col gap-6">
         <div className="flex justify-between">
-          <h1 className="text-3xl tracking-tighter font-bold">Projects</h1>
+          <h1 className="text-3xl tracking-tighter font-bold">Collaborating</h1>
           {projects.length && (
             <Button
               variant="secondary"
@@ -133,7 +133,7 @@ export default function Home() {
         </div>
         {projects.length && (
           <div className="flex space-between gap-4">
-            <Input placeholder="Search for projects" />
+            <Input placeholder="Search for tasks" />
             <Button className="flex gap-2">
               <Search /> Search
             </Button>

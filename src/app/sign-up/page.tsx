@@ -120,21 +120,14 @@ function SignUpPage() {
       <Image
         width="1920"
         height="1080"
-        src="/bg-doodle-dark.jpg"
+        src="/bg-image.jpg"
         alt=""
-        className="fixed object-cover h-[60rem] w-full blur-sm hidden dark:block top-0"
-      />
-      <Image
-        width="1920"
-        height="1080"
-        src="/bg-doodle-light.jpg"
-        alt=""
-        className="fixed object-cover h-[60rem] w-full blur-sm dark:hidden top-0"
+        className="fixed object-cover h-[60rem] w-full blur-sm top-0"
       />
       <div className="w-full max-w-md p-8 space-y-8 last:space-y-3 my-4 bg-white dark:bg-zinc-900 ring-2 ring-zinc-500 dark:ring-zinc-200 rounded-lg shadow-md z-10">
         <div className="text-center  text-black dark:text-white">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Join Sociial
+            Join Project Store
           </h1>
           <p className="mb-4">Sign up to start to your journey with us</p>
         </div>

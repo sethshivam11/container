@@ -87,21 +87,14 @@ function SignInPage() {
       <Image
         width="1920"
         height="1080"
-        src="/bg-doodle-dark.jpg"
+        src="/bg-image.jpg"
         alt=""
-        className="fixed object-cover h-full w-full blur-sm hidden dark:block"
-      />
-      <Image
-        width="1920"
-        height="1080"
-        src="/bg-doodle-light.jpg"
-        alt=""
-        className="fixed object-cover h-full w-full blur-sm dark:hidden"
+        className="fixed object-cover h-full w-full blur-sm dark:block"
       />
       <div className="w-full max-w-md p-8 space-y-8 last:space-y-3 bg-white dark:bg-zinc-900 ring-2 ring-zinc-500 dark:ring-zinc-200 rounded-lg shadow-md relative z-10">
         <div className="text-center text-black dark:text-white">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Welcome Back to Sociial
+            Welcome Back
           </h1>
           <p className="mb-4">Sign in to continue to your journey with us</p>
         </div>
