@@ -48,27 +48,13 @@ import {
   logOutUser,
 } from "@/lib/store/features/slices/userSlice";
 import { toast } from "./ui/use-toast";
-import ReportDialog from "./ReportDialog";
-import NavbarLoading from "./skeletons/NavbarLoading";
 
 function Navbar() {
   const location = usePathname();
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const [reportDialog, setReportDialog] = React.useState(false);
   const [logOutDialog, setLogOutDialog] = React.useState(false);
-  const hideNav = [
-    "/sign-in",
-    "/sign-up",
-    "/forgot-password",
-    "/verify-code",
-    "/story/",
-    "/get-premium",
-    "/call",
-    "/new-post",
-    "/upload-video",
-    "/add-story",
-  ];
+  const hideNav = ["/sign-in", "/sign-up", "/forgot-password", "/verify-code"];
   const [unreadMessageCount, newNotifications] = [0, false];
   const { user, isLoggedIn } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
@@ -245,116 +231,7 @@ function Navbar() {
           </Link>
         </div>
         <div className="w-full text-center sm:flex hidden flex-col xl:items-start items-center gap-4 sm:p-1">
-          <Menubar className="w-full bg-transparent border-transparent xl:justify-start justify-center">
-            <MenubarMenu>
-              <MenubarTrigger
-                className="bg-tranparent xl:w-full w-fit ring-2 flex items-center xl:justify-start justify-center xl:pl-4 sm:p-3 p-2 gap-3 rounded-2xl hover:ring-stone-900  bg-stone-800 dark:bg-stone-100 text-white dark:text-black ring-stone-800 dark:hover:ring-stone-100 hover:ring-2"
-                title="Create"
-              >
-                <span className="text-center w-full xl:inline hidden">
-                  Create
-                </span>
-                <Plus className="xl:hidden inline" />
-              </MenubarTrigger>
-              <MenubarContent className="rounded-xl" align="center">
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5"
-                  onClick={() => router.push("/new-post")}
-                >
-                  <Grid2X2 />
-                  &nbsp;&nbsp;Post
-                </MenubarItem>
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5"
-                  onClick={() => router.push("/upload-video")}
-                >
-                  <Tv />
-                  &nbsp;&nbsp;Video
-                </MenubarItem>
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5"
-                  onClick={() => router.push("/add-story")}
-                >
-                  <CircleFadingPlusIcon />
-                  &nbsp;&nbsp; Story
-                </MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
-          </Menubar>
-          <Menubar className="w-full bg-transparent border-transparent xl:justify-start justify-center">
-            <MenubarMenu>
-              <MenubarTrigger
-                className="bg-tranparent xl:w-full w-fit ring-2 ring-stone-500 flex items-center xl:justify-start justify-center xl:pl-4 sm:p-3 p-2 gap-3 rounded-2xl hover:ring-stone-900 dark:hover:ring-stone-200"
-                title="More"
-              >
-                <span className="text-center w-full xl:inline hidden">
-                  More
-                </span>
-                <Menu className="xl:hidden inline" />
-              </MenubarTrigger>
-              <MenubarContent className="rounded-xl" align="center">
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5"
-                  onClick={() => router.push("/settings")}
-                >
-                  <Settings />
-                  &nbsp;&nbsp;Settings
-                </MenubarItem>
-                <MenubarSub>
-                  <MenubarSubTrigger className="py-2.5 rounded-lg pl-2.5">
-                    {theme === "dark" && <Moon />}
-                    {theme === "light" && <Sun />}
-                    {theme === "system" && <Palette />}
-                    &nbsp;&nbsp;Theme
-                  </MenubarSubTrigger>
-                  <MenubarSubContent>
-                    <MenubarItem
-                      className="py-2.5 rounded-lg pl-2.5"
-                      onClick={() => setTheme("system")}
-                    >
-                      <Palette />
-                      &nbsp;&nbsp;System
-                    </MenubarItem>
-                    <MenubarItem
-                      className="py-2.5 rounded-lg pl-2.5"
-                      onClick={() => setTheme("light")}
-                    >
-                      <Sun />
-                      &nbsp;&nbsp;Light
-                    </MenubarItem>
-                    <MenubarItem
-                      className="py-2.5 rounded-lg pl-2.5"
-                      onClick={() => setTheme("dark")}
-                    >
-                      <Moon />
-                      &nbsp;&nbsp;Dark
-                    </MenubarItem>
-                  </MenubarSubContent>
-                </MenubarSub>
-                <MenubarSeparator />
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5 text-red-600 focus:text-red-600"
-                  onClick={() => setReportDialog(true)}
-                >
-                  <ShieldAlert />
-                  &nbsp;&nbsp;Report problem
-                </MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem
-                  className="py-2.5 rounded-lg pl-2.5 text-red-600 focus:text-red-600"
-                  onClick={() => setLogOutDialog(true)}
-                >
-                  <LogOut />
-                  &nbsp;&nbsp;Log Out
-                </MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
-          </Menubar>
-          <ReportDialog
-            open={reportDialog}
-            setOpen={setReportDialog}
-            type="problem"
-          />
+          
           <AlertDialog open={logOutDialog} onOpenChange={setLogOutDialog}>
             <AlertDialogContent onOpenAutoFocus={(e) => e.preventDefault()}>
               <AlertDialogTitle className="w-full text-center text-2xl tracking-tight font-bold">
